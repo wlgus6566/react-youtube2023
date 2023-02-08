@@ -17,6 +17,12 @@
     "timeago.js": "^4.0.2",
     "web-vitals": "^2.1.0"
   },
+  "workspaces": {
+    "nohoist": [
+      "**/tailwindcss",
+      "**/@tailwindcss/**"
+    ]
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
