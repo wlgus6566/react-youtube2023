@@ -7,7 +7,7 @@ export default function VideoCard({ video,type }) {
   const navigate = useNavigate();
   const isList = type === 'list';
   return <li
-      className={isList ? 'flex gap-1 m-2' : 'list'}
+      className={isList ? 'flex gap-1 m-2 list' : 'list'}
       onClick={() => {navigate(`/videos/watch/${video.id}`, {state: {video}})}}>
     <img className={isList? 'w-60 mr-2' : 'w-full'} src={thumbnails.medium.url} alt={title}/>
     <div>

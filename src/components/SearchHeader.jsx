@@ -39,7 +39,7 @@ export default function SearchHeader() {
 
       <div className='profile-wrap' onClick={handleLove}>
         <img className='profile' src='./profile.jpg' alt=""/>
-          {love && <span className='speech-bubble'>알러븅범뜌❤️</span>}
+          {love && <span className='speech-bubble'>❤️</span>}
       </div>
     </header>
   );
