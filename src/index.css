@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
+  height: 100vh;
+  @apply flex flex-col items-center;
+  @apply bg-zinc-900 text-gray-50;
+}
+
+#root {
+  @apply w-full max-w-screen-2xl p-2;
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.list {
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.profile-wrap {
+  position: relative;
+  min-width: 60px;
+  box-sizing: border-box;
+}
+.profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.speech-bubble {
+  position: absolute;
+  display: block;
+  margin-right: 16px;
+  font-size: 12px;
+  white-space: nowrap;
+  height: 29px;
+  padding: 8px;
+  box-sizing: border-box;
+  line-height: 1;
+  margin-top: 20px;
+  background-color: #fff;
+  color: black;
+  border-radius: 10px;
+  top: 0;
+  left: -106px;
+  font-weight: bold;
+}
+
+.speech-bubble:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-left-color:#fff;
+  border-right: 0;
+  border-top: 0;
+  margin-top: -5px;
+  margin-right: -9px;
+}
