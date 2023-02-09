@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { BsYoutube, BsSearch } from 'react-icons/bs';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import {login, logout, onUserStateChange} from "../firebase";
+import User from "./User";
 
 export default function SearchHeader() {
+    const [user,setUser] = useState();
+    useEffect(()=>{
+        onUserStateChange(setUser)
+    }, [])
+
   const { keyword } = useParams();
   const navigate = useNavigate();
   const [text, setText] = useState('');
-  const [love, setLove] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate(`/videos/${text}`);
   };
-
-  const handleLove = () => {
-      setLove(prev => !prev)
-  }
 
   useEffect(() => setText(keyword || ''), [keyword]);
 
@@ -29,18 +31,14 @@ export default function SearchHeader() {
           className='w-7/12 p-2 outline-none bg-black text-gray-50'
           type='text'
           placeholder='Search...'
-          value={text}
-          onChange={(e) => setText(e.target.value)}
         />
         <button className='bg-zinc-600 px-4'>
           <BsSearch />
         </button>
       </form>
-
-      <div className='profile-wrap' onClick={handleLove}>
-        <img className='profile' src='./profile.jpg' alt=""/>
-          {love && <span className='speech-bubble'>❤️</span>}
-      </div>
+        {user && <User user={user}/>}
+        {!user && <button className='text-sm' onClick={login}>Login</button>}
+        {user && <button className='text-sm' onClick={logout}>Logout</button>}
     </header>
   );
 }
